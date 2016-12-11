@@ -187,7 +187,8 @@ Below we see the example for an imaginary order entry system for a small company
 *project-config.json:*
 ```
 {
-  "title" : "Demo App",
+  "projectName" : "demo v0.1", 
+  "title" : "Order Entry App (Demo)",
 
   "entities": {
 
