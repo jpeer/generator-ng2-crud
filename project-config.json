@@ -1,0 +1,66 @@
+{
+  "projectName" : "demo v0.1",
+  "title" : "Order Entry App (Demo)",
+
+  "entities": {
+
+    "customer": {
+      "name": "string",
+      "title?": "string",
+      "address": {
+        "street": "string",
+        "zip": "string",
+        "city": "string",
+        "country": "ref:country:name"
+      }
+    },
+
+    "product": {
+      "catNr": "string",
+      "title": "string",
+      "description?": "string"
+    },
+
+    "order": {
+      "date": "date",
+      "customer": "ref:customer:name",
+      "comment": {
+        "type": "text",
+        "validators": [
+          "required",
+          "maxLength(200)"
+        ]
+      },
+      "items": [
+        {
+          "qty": "number",
+          "prod": "ref:product:title",
+          "price": "number"
+        }
+      ]
+    },
+
+    "country": {
+      "name": "string"
+    }
+  },
+
+  "pagination": {
+    ".*": {
+      "enabled": true,
+      "tableSize": 20
+    },
+    "country": {
+      "enabled": false
+    }
+  },
+
+  "validators": {
+    "product.*": [ "required", "maxLength(30)"]
+  },
+
+  "serverConfig": {
+    "expressPort": 3000,
+    "mongoDbUrl": "mongodb://localhost/demo"
+  }
+}

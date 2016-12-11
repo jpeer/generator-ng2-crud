@@ -1,0 +1,57 @@
+<% var entityLabel = context._.capitalize(context.entity.name); %>
+<h1><%= entityLabel %></h1>
+
+<a routerLink="/<%- context.entity.name %>form" routerLinkActive="active">Add new <%= entityLabel %></a>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <% context.entity.properties.forEach(function(prop) {
+        if(context.datatypes.isSingleValued(prop.typeInfo.type)) {
+        %>
+        <th><%=  prop.name %></th>
+        <% } %>
+        <% }); %>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <%
+    var usePagination = false;
+    var pagination = '';
+    if(context.entity.hasOwnProperty('pagination') && context.entity.pagination.enabled) {
+        pagination = '| paginate: { itemsPerPage: ' + context.entity.pagination.tableSize + ', currentPage: p }';
+        usePagination = true;
+    }
+    %>
+
+    <tr *ngFor="let obj of data <%- pagination -%>" (click)="onEdit(obj)">
+
+        <% context.entity.properties.forEach(function(prop) {
+           if(context.datatypes.isSingleValued(prop.typeInfo.type)) {
+              if(context.datatypes.isReference(prop.typeInfo.type)) {
+        %>
+            <td><%- context.templateUtils.generateReferenceLabel(prop.typeInfo, 'obj', context) -%></td>
+        <%
+              } else {
+        %>
+          <td>{{obj.<%= prop.name %>}}</td>
+        <%
+              }
+           }
+        %>
+        <% }); %>
+
+        <td><i class="fa fa-times" aria-hidden="true" (click)="onDelete(obj)"></i></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <% if(usePagination) { %>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <% } %>
+    </tfoot>
+
+</table>
+
+<a routerLink="/<%- context.entity.name %>form" routerLinkActive="active">Add new <%= entityLabel %></a>

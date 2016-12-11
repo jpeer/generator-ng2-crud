@@ -1,0 +1,12 @@
+<% var entityLabel = context._.capitalize(context.entity.name); %>
+<h1>{{ isUpdate ? "Edit" : "Add" }} <%= entityLabel %></h1>
+
+<div *ngIf="errorMessage != null" id="message">
+    <ngb-alert (close)="closeAlert()">Error occurred on server side: {{ errorMessage }}</ngb-alert>
+</div>
+
+<%- context.formTemplGen.generateTemplate(context.entity, context) -%>
+
+<pre>
+{{ formGroup.value | json }}
+</pre>

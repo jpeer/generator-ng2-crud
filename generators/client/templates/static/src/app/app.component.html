@@ -1,0 +1,19 @@
+
+<div class="jumbotron">
+  <h1><%= context.title %></h1>
+</div>
+
+<nav>
+<% context.firstclassEntities.forEach(function(entity){ %>
+<a routerLink="/<%- entity.name %>list" routerLinkActive="active"><%= context._.capitalize(entity.name) %></a> |
+<% }); %>
+  <a routerLink="/help" routerLinkActive="active">Help</a> |
+</nav>
+
+<main>
+	<router-outlet></router-outlet>
+</main>
+
+<footer>
+  © 2017
+</footer>
