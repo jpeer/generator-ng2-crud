@@ -255,7 +255,7 @@ Below we see the example for an imaginary order entry system for a small company
 
 if we run `yo ng2-crud` against this configuration (.e.g by invoking `./quickrun.sh <app-dir>`), we should get a data entry screen such as the following:
  
-![Screenshot](http://imgur.com/a/x7ifQ)
+![Screenshot](/demo.png?raw=true)
 
 
 ## Known Limitations and TODOs 
