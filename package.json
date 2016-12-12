@@ -1,8 +1,8 @@
 {
   "name": "generator-ng2-crud",
-  "version": "0.0.0",
-  "description": "",
-  "homepage": "",
+  "version": "0.0.1",
+  "description": "Yeoman generator for scaffolding data entry web apps based on angular2 and mongodb.",
+  "homepage": "https://github.com/jpeer/generator-ng2-crud",
   "author": {
     "name": "jpeer",
     "email": "joachim.peer@gmail.com"
