@@ -49,7 +49,7 @@
       "mocha": true
     }
   },
-  "repository": "/generator-ng2-crud",
+  "repository": "https://github.com/jpeer/generator-ng2-crud",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
