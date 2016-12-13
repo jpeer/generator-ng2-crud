@@ -98,7 +98,7 @@ Here an example of two entities that demonstrate several aspects of defining dat
     },
     
     "country": {
-      "continent": "number"
+      "name" : "string"
     }    
 ~~~~
 
@@ -261,18 +261,24 @@ if we run `yo ng2-crud` against this configuration (.e.g by invoking `./quickrun
 
 ## Known Limitations and TODOs 
 
-The current system is working but many features are not yet developed or perhaps not production grade quality. Here the known limitations and todods: 
+The system is alpha quality: It is working but many features are not yet developed or not of production grade quality.
+
+Here the known limitations:
 
 * No server side validation
-* No server side paginiation support (crucial for large datasets that can not be dowloaded to client)
+* No server side pagination support (crucial for large datasets that can not be dowloaded to client)
 * No possibility yet to specify indexes on database model
+* No filter/search feature
 * Support for one-to-many relationships can be improved:
   * offer searchbar or similar for too large datasets where combobox is not feasible
-  * to of
+  * to offer easy method (e.g. overlay screen) to add missing elements in reference collection
 * No support for data buffers (e.g. image uploads)
 * Date picker not working (waiting for ng2-bootstrap's datepicker implementing ValueAccessor interface)
 * the frontend boilerplate (package json, tsconfig) come from angular2 seed project (one time snapshot). It would be better to refer to a yeoman generator instead to stay up to date w/ libraries etc. 
+* the generated source code is not neatly formatted at the moment. One could add a formatting step to deal with this.
+* the menu bar currently does not highlight the active menu item
 
+Drop me a mail in case of questions, bugs or feature ideas
 
 ## License
 
